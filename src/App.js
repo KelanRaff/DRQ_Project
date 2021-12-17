@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/header';
 import Content from './components/content';
-import Footer from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -13,8 +11,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Read from './components/read';
-import Create from './components/create';
+
+import Fetch from './components/fetch';
+import Addlisting from './components/addlisting';
+import Relist from './components/relist';
+
+
 
 class App extends Component {
   render() {
@@ -23,22 +25,24 @@ class App extends Component {
       <div className="App">
         <Navbar bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Navbar.Brand href="/">GalwayHousing.com</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/read">Read</Nav.Link>
-              <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/">Contact</Nav.Link>
+              <Nav.Link href="/fetch">Listings</Nav.Link>
+              <Nav.Link href="/addlisting">Add Listing</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
         <Switch>
           <Route path="/" exact><Content /></Route>
-          <Route path="/create"><Create></Create></Route>
-          <Route path="/read"><Read></Read></Route>
+          <Route path="/addlisting"><Addlisting></Addlisting></Route>
+          <Route path="/fetch"><Fetch></Fetch></Route>
+          <Route path="/relist/:id"> <Relist></Relist></Route>
         </Switch>
       </div>
       </Router>
     );
   }
 }
+
 export default App;
